@@ -46,5 +46,12 @@ function showCurrentQuestion() {
 }
 
 function answer(selection) {
-    
+    let question = questions[currentQuestion];
+    console.log('selected answer is', selection);
+    let selectedQuestionNumber = selection.slice(-1);
+    console.log('selectedQuestionNumber is', selectedQuestionNumber);
+    if(selectedQuestionNumber == question['right_answer']) {
+        alert ("You won!");
+    }
+    else alert("not the right question");
 }
