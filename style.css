@@ -28,3 +28,5 @@ body {
 }
 
 .bg-success, .bg-danger {color: white !important;}
+
+.text-center {text-align: center;}

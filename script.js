@@ -86,5 +86,23 @@ function lastQuestion() {   //könnte eigentlich anders heißen, aber so hat sie
     if (currentQuestion < questions.length - 1) {
         nextQuestion();
     }
-    else {alert("That´s all folks");}
+    else {
+        document.getElementById("endScreen").style = '';
+        document.getElementById("questionBody").style = 'display: none';
+    }
+}
+
+// //Junus hat das umgekehrt:
+// function showQuestion() {
+//     if (currentQuestion >= question.length) {
+//         //TODO Show End Screen
+//     }
+//     else{
+//         nextQuestion(); //nur er hat alles händisch rausgeschrieben
+//     }
+// }
+
+function showRightQuestionsAmount() {
+    document.getElementById("allAmount").innerHTML = questions.length;
+    document.getElementById("correctAmount").innerHTML = 
 }

@@ -20,7 +20,13 @@
       <div class="container">
         <div class="card quiz_card">
             <img src="./imgs/logo.png" class="card-img-top">
-            <div class="card-body">
+
+            <div class="card-body" id="endScreen" style="display: none;">
+                Quiz beendet
+                <div class="text-center">Du hast <b id="correctAmount"></b> Fragen von <b id="allAmount"></b> richtig beantwortet.</div>
+            </div>
+
+            <div class="card-body" id="questionBody">
             <h5 class="card-title" id="questionTitle">Frage</h5>
 
             <div class="card mb-2 quiz_answer_card" onclick="answer('answer_1')">
@@ -55,6 +61,5 @@
             </div>
         </div>
       </div>
-
 </body>
 </html>
