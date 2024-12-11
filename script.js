@@ -43,6 +43,7 @@ function showCurrentQuestion() {
     document.getElementById("answer_2").innerHTML = question['answer_2'];
     document.getElementById("answer_3").innerHTML = question['answer_3'];
     document.getElementById("answer_4").innerHTML = question['answer_4'];
+    document.getElementById("questionOrder").innerHTML = currentQuestion + 1;
 }
 
 function answer(selection) {
@@ -57,6 +58,27 @@ function answer(selection) {
     if(selectedQuestionNumber == question['right_answer']) {
         document.getElementById(selection).parentNode.classList.add("bg-success");
     }
-    else document.getElementById(selection).parentNode.classList.add("bg-danger");
+    else {document.getElementById(selection).parentNode.classList.add("bg-danger");
         document.getElementById(idOfRIghtAnswer).parentNode.classList.add("bg-success");
+    }
+    document.getElementById("nextButton").disabled = false; //es ist außerhalb else, da wir es auch bei schlechter Antwort aktivieren möchten
 }
+
+function nextQuestion() {
+    currentQuestion++;
+    document.getElementById("nextButton").disabled = true;
+    resetAnswerButtons();
+    showCurrentQuestion();
+}
+
+function resetAnswerButtons() {
+    document.getElementById('answer_1').parentNode.classList.remove("bg-danger");
+    document.getElementById('answer_1').parentNode.classList.remove("bg-success"); //dass mussten wir 8x ausführen
+    document.getElementById('answer_2').parentNode.classList.remove("bg-danger");
+    document.getElementById('answer_2').parentNode.classList.remove("bg-success"); 
+    document.getElementById('answer_3').parentNode.classList.remove("bg-danger");
+    document.getElementById('answer_3').parentNode.classList.remove("bg-success"); 
+    document.getElementById('answer_4').parentNode.classList.remove("bg-danger");
+    document.getElementById('answer_4').parentNode.classList.remove("bg-success"); 
+}
+
