@@ -50,8 +50,13 @@ function answer(selection) {
     console.log('selected answer is', selection);
     let selectedQuestionNumber = selection.slice(-1);
     console.log('selectedQuestionNumber is', selectedQuestionNumber);
+    console.log('current question is', question['right_answer']);
+
+    let idOfRIghtAnswer = `answer_${question['right_answer']}`;
+
     if(selectedQuestionNumber == question['right_answer']) {
-        alert ("You won!");
+        document.getElementById(selection).parentNode.classList.add("bg-success");
     }
-    else alert("not the right question");
+    else document.getElementById(selection).parentNode.classList.add("bg-danger");
+        document.getElementById(idOfRIghtAnswer).parentNode.classList.add("bg-success");
 }

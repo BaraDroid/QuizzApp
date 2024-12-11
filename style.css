@@ -26,3 +26,5 @@ body {
     cursor:pointer;
     background-color: rgb(255 163 164);
 }
+
+.bg-success, .bg-danger {color: white !important;}
