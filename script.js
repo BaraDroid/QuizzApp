@@ -82,3 +82,9 @@ function resetAnswerButtons() {
     document.getElementById('answer_4').parentNode.classList.remove("bg-success"); 
 }
 
+function lastQuestion() {   //könnte eigentlich anders heißen, aber so hat sie meine nextQuestion verschluckt (wegen der if Abfrage)
+    if (currentQuestion < questions.length - 1) {
+        nextQuestion();
+    }
+    else {alert("That´s all folks");}
+}
