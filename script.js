@@ -30,8 +30,10 @@ let questions = [
 ];
 
 let rightQuestions = 0;
-
 let currentQuestion = 0;
+let AUDIO_SUCCESS = new Audio('./audio/success.wav');
+let AUDIO_FAILURE = new Audio('./audio/failure.mp3');
+let AUDIO_THE_END = new Audio('./audio/fanfare.mp3');
 
 function init() {
     document.getElementById("questionsAmount").innerHTML = questions.length;
@@ -67,9 +69,11 @@ function answer(selection) {
     if(selectedQuestionNumber == question['right_answer']) {
         document.getElementById(selection).parentNode.classList.add("bg-success");
         rightQuestions++;
+        AUDIO_SUCCESS.play();
     }
     else {document.getElementById(selection).parentNode.classList.add("bg-danger");
         document.getElementById(idOfRIghtAnswer).parentNode.classList.add("bg-success");
+        AUDIO_FAILURE.play();
     }
     document.getElementById("nextButton").disabled = false; //es ist außerhalb else, da wir es auch bei schlechter Antwort aktivieren möchten
 }
@@ -100,18 +104,9 @@ function lastQuestion() {   //könnte eigentlich anders heißen, aber so hat sie
     else {
         document.getElementById("endScreen").style = '';
         document.getElementById("questionBody").style = 'display: none';
+        AUDIO_THE_END.play();
     }
 }
-
-// //Junus hat das umgekehrt:
-// function showQuestion() {
-//     if (currentQuestion >= question.length) {
-//         //TODO Show End Screen
-//     }
-//     else{
-//         nextQuestion(); //nur er hat alles händisch rausgeschrieben
-//     }
-// }
 
 function restartGame() {
     //Junus ändert hier das Bild wieder zurück, das habe ich nicht gemacht
