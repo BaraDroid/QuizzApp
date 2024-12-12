@@ -48,10 +48,11 @@ function showCurrentQuestion() {
     document.getElementById("questionOrder").innerHTML = currentQuestion + 1;
     document.getElementById("allAmount").innerHTML = questions.length;
     document.getElementById("correctAmount").innerHTML = rightQuestions;
-    let percent = currentQuestion / questions.length * 100;
+    let percent = (currentQuestion + 1) / questions.length * 100;
     console.log(percent);
     percent = Math.round(percent);
     document.getElementById("quizProgress").innerHTML = `${percent}%`;
+    document.getElementById("quizProgress").style.width = `${percent}%`;
 }
 
 function answer(selection) {
@@ -97,7 +98,6 @@ function lastQuestion() {   //könnte eigentlich anders heißen, aber so hat sie
 
     }
     else {
-        document.getElementById("quizProgress").innerHTML = "100%";
         document.getElementById("endScreen").style = '';
         document.getElementById("questionBody").style = 'display: none';
     }
@@ -112,3 +112,13 @@ function lastQuestion() {   //könnte eigentlich anders heißen, aber so hat sie
 //         nextQuestion(); //nur er hat alles händisch rausgeschrieben
 //     }
 // }
+
+function restartGame() {
+    //Junus ändert hier das Bild wieder zurück, das habe ich nicht gemacht
+    //mit document.getElementById('header_img').src = 'pfad zu dem anderen Bild';
+    rightQuestions = 0;
+    currentQuestion = 0;    //beide variablen müssen wieder zur Anfangposition
+    document.getElementById("endScreen").style = 'display: none;';
+    document.getElementById("questionBody").style = '';
+    init();
+}

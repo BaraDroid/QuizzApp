@@ -21,13 +21,14 @@
         <div class="card quiz_card">
             <img src="./imgs/logo.png" class="card-img-top">
 
-            <div class="progress" id="quizProgress" role="progressbar" aria-label="Example with label" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-                <div class="progress-bar" style="width: 25%">25%</div>
+            <div class="progress" id="quizProgress" role="progressbar" aria-label="Example with label">
+                <div class="progress-bar" style="width: 0%">25%</div>
               </div>
 
             <div class="card-body" id="endScreen" style="display: none;">
                 Quiz beendet
                 <div class="text-center">Du hast <b id="correctAmount"></b> Fragen von <b id="allAmount"></b> richtig beantwortet.</div>
+                <div class="repeat_button"><button class="btn btn-primary" onclick="restartGame()">Noch einmal</button></div>
             </div>
 
             <div class="card-body" id="questionBody">

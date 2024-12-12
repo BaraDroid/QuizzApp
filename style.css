@@ -30,3 +30,10 @@ body {
 .bg-success, .bg-danger {color: white !important;}
 
 .text-center {text-align: center;}
+
+.repeat_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 24px;
+}
