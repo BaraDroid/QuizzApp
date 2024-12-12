@@ -29,6 +29,8 @@ let questions = [
     },
 ];
 
+let rightQuestions = 0;
+
 let currentQuestion = 0;
 
 function init() {
@@ -44,6 +46,8 @@ function showCurrentQuestion() {
     document.getElementById("answer_3").innerHTML = question['answer_3'];
     document.getElementById("answer_4").innerHTML = question['answer_4'];
     document.getElementById("questionOrder").innerHTML = currentQuestion + 1;
+    document.getElementById("allAmount").innerHTML = questions.length;
+    document.getElementById("correctAmount").innerHTML = rightQuestions;
 }
 
 function answer(selection) {
@@ -57,6 +61,7 @@ function answer(selection) {
 
     if(selectedQuestionNumber == question['right_answer']) {
         document.getElementById(selection).parentNode.classList.add("bg-success");
+        rightQuestions++;
     }
     else {document.getElementById(selection).parentNode.classList.add("bg-danger");
         document.getElementById(idOfRIghtAnswer).parentNode.classList.add("bg-success");
@@ -101,8 +106,3 @@ function lastQuestion() {   //könnte eigentlich anders heißen, aber so hat sie
 //         nextQuestion(); //nur er hat alles händisch rausgeschrieben
 //     }
 // }
-
-function showRightQuestionsAmount() {
-    document.getElementById("allAmount").innerHTML = questions.length;
-    document.getElementById("correctAmount").innerHTML = 
-}
