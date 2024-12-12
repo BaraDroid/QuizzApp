@@ -48,6 +48,10 @@ function showCurrentQuestion() {
     document.getElementById("questionOrder").innerHTML = currentQuestion + 1;
     document.getElementById("allAmount").innerHTML = questions.length;
     document.getElementById("correctAmount").innerHTML = rightQuestions;
+    let percent = currentQuestion / questions.length * 100;
+    console.log(percent);
+    percent = Math.round(percent);
+    document.getElementById("quizProgress").innerHTML = `${percent}%`;
 }
 
 function answer(selection) {
@@ -90,8 +94,10 @@ function resetAnswerButtons() {
 function lastQuestion() {   //könnte eigentlich anders heißen, aber so hat sie meine nextQuestion verschluckt (wegen der if Abfrage)
     if (currentQuestion < questions.length - 1) {
         nextQuestion();
+
     }
     else {
+        document.getElementById("quizProgress").innerHTML = "100%";
         document.getElementById("endScreen").style = '';
         document.getElementById("questionBody").style = 'display: none';
     }
